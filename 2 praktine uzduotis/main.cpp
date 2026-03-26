@@ -123,6 +123,13 @@ int main() {
                 cout << "Mokinys nerastas.\n";
             }
         }
+        else if (pasirinkimas == 0) {
+            cout << "Programa baigta.\n";
+            break;
+        }
+        else {
+            cout << "Neteisingas pasirinkimas.\n";
+        }
     }
     return 0;
 }
