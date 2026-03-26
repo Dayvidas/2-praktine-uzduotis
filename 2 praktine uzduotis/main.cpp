@@ -39,6 +39,42 @@ int main() {
                 cout << "Nebegalima prideti daugiau mokiniu.\n";
             }
         }
+        else if (pasirinkimas == 2) {
+            if (mokiniuKiekis == 0) {
+                cout << "Mokiniu nera.\n";
+            } else {
+                for (int i = 0; i < mokiniuKiekis; i++) {
+                    cout << vardai[i] << ": ";
+                    for (int j = 0; j < MAX_PAZYMIU; j++) {
+                        if (pazymiai[i][j] != 0) {
+                            cout << pazymiai[i][j] << " ";
+                        }
+                    }
+                    cout << endl;
+                }
+            }
+        }
+        else if (pasirinkimas == 3) {
+            string vardas;
+            bool rastas = false;
+            cout << "Iveskite mokinio varda: ";
+            cin >> vardas;
+            for (int i = 0; i < mokiniuKiekis; i++) {
+                if (vardai[i] == vardas) {
+                    cout << vardai[i] << ": ";
+                    for (int j = 0; j < MAX_PAZYMIU; j++) {
+                        if (pazymiai[i][j] != 0) {
+                            cout << pazymiai[i][j] << " ";
+                        }
+                    }
+                    cout << endl;
+                    rastas = true;
+                }
+            }
+            if (!rastas) {
+                cout << "Mokinys nerastas.\n";
+            }
+        }
     }
     return 0;
 }
