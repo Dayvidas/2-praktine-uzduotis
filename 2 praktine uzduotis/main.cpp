@@ -75,6 +75,54 @@ int main() {
                 cout << "Mokinys nerastas.\n";
             }
         }
+        else if (pasirinkimas == 4) {
+            string vardas;
+            int nr, naujas;
+            bool rastas = false;
+            cout << "Iveskite mokinio varda: ";
+            cin >> vardas;
+            for (int i= 0; i<mokiniuKiekis;i++) {
+                if (vardai[i] == vardas) {
+                    cout << "Kelinta pazymi norite pakeisti? (1-10): ";
+                    cin >> nr;
+                    if (nr >= 1 && nr <= 10 && pazymiai[i][nr - 1] != 0) {
+                        cout << "Iveskite nauja pazymi: ";
+                        cin >> naujas;
+                        pazymiai[i][nr - 1] = naujas;
+                        cout << "Pazymys pakeistas.\n";
+                    } else {
+                        cout << "Toks pazymys neegzistuoja.\n";
+                    }
+                    rastas = true;
+                }
+            }
+            if (!rastas) {
+                cout << "Mokinys nerastas.\n";
+            }
+        }
+        else if (pasirinkimas == 5) {
+            string vardas;
+            bool rastas = false;
+            cout << "Iveskite mokinio varda, kuri norite pasalinti: ";
+            cin >> vardas;
+            for (int i = 0; i <mokiniuKiekis; i++) {
+                if (vardai[i] == vardas) {
+                    for (int k = i; k < mokiniuKiekis - 1; k++) {
+                        vardai[k] = vardai[k + 1];
+                        for (int j = 0; j < MAX_PAZYMIU; j++) {
+                            pazymiai[k][j] = pazymiai[k + 1][j];
+                        }
+                    }
+                    mokiniuKiekis--;
+                    cout << "Mokinys pasalintas.\n";
+                    rastas = true;
+                    break;
+                }
+            }
+            if (!rastas) {
+                cout << "Mokinys nerastas.\n";
+            }
+        }
     }
     return 0;
 }
