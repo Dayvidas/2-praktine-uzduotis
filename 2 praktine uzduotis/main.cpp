@@ -18,6 +18,27 @@ int main() {
         cout << "0. Baigti\n";
         cout << "Pasirinkimas: ";
         cin >> pasirinkimas;
+        if (pasirinkimas == 1) {
+            if (mokiniuKiekis < MAX_MOKINIU) {
+                int kiek;
+                cout<<"Iveskite mokinio varda: ";
+                cin>>vardai[mokiniuKiekis];
+                cout<<"Kiek pazymiu vesite? ";
+                cin>>kiek;
+                if (kiek > MAX_PAZYMIU) {
+                    kiek = MAX_PAZYMIU;
+                }
+                for (int j = 0; j < kiek; j++) {
+                    cout << "Iveskite " << j + 1 << " pazymi: ";
+                    cin >> pazymiai[mokiniuKiekis][j];
+                }
+                mokiniuKiekis++;
+                cout << "Mokinys pridetas.\n";
+            }
+            else {
+                cout << "Nebegalima prideti daugiau mokiniu.\n";
+            }
+        }
     }
     return 0;
 }
